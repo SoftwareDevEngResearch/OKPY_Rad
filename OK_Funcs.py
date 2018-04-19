@@ -35,6 +35,12 @@ into the appropriate array.
 Data: PipeRead data from the Opal Kelly Function
 Bytes: Number of Bytes in each read (4 bytes for current FPGA board)
 
+Notes on Data: 
+    A bytearray wih form  "bytearray(b'\x00\x00...etc)
+    The ReadFromPipeOut reads out 4 byte chunks -- or 32 bits of data. This 
+    corresponds to four entries of the bytearray. If the ReadFromPipeOut reads
+    with different amount 
+
 Returns array of assembled data
 """
 def Pipeout_Assemble(Data, Bytes):
