@@ -1,6 +1,6 @@
 """
 Opal Kelly Functions List
-Functions to interface with Opal Kelly API. 
+Functions to interface with Opal Kelly API.
 
 WARNING: Some functions may require Opal Kelly FPGA device to be connected to the PC running
 the software to properly test
@@ -9,14 +9,14 @@ the software to properly test
 
 """
 bit_chop function
-Takes decimal number and converts it into binary. User selects which bits are 
+Takes decimal number and converts it into binary. User selects which bits are
 desired and returns a decimal number.
 
 Data: Full decimal number
 msb: Most significant bit of desired number
 lsb: least signficant bit of desired number
 Total Bits: Totals bits of signal that is being read. Related to Opal Kelly's
-wireout data. Number of bits should be established in VHDL. 
+wireout data. Number of bits should be established in VHDL.
 """
 def bit_chop(Data, msb, lsb, Total_Bits):
     Buffer_bits = str(bin(Data)[2:])
@@ -25,21 +25,21 @@ def bit_chop(Data, msb, lsb, Total_Bits):
     for i in range(Remaining_bits):
         Reverse_bits += '0'
     output = str(Reverse_bits[lsb:msb+1])
-    
+
     return int(output[::-1],2)
 
 """
 Pipeout assemble function
-Applies Opal Kelly's PipeOut read function and assembles the data 
-into the appropriate array. 
+Applies Opal Kelly's PipeOut read function and assembles the data
+into the appropriate array.
 Data: PipeRead data from the Opal Kelly Function
 Bytes: Number of Bytes in each read (4 bytes for current FPGA board)
 
-Notes on Data: 
+Notes on Data:
     A bytearray wih form  "bytearray(b'\x00\x00...etc)
-    The ReadFromPipeOut reads out 4 byte chunks -- or 32 bits of data. This 
+    The ReadFromPipeOut reads out 4 byte chunks -- or 32 bits of data. This
     corresponds to four entries of the bytearray. If the ReadFromPipeOut reads
-    with different amount 
+    with different amount
 
 Returns array of assembled data
 """
@@ -55,5 +55,4 @@ def Pipeout_Assemble(Data, Bytes):
     result = Output_Reversed[::-1]
     return result
 
-
-#Look at this change on my PC!
+    
