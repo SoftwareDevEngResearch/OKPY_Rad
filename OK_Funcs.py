@@ -37,9 +37,10 @@ Bytes: Number of Bytes in each read (4 bytes for current FPGA board)
 
 Notes on Data:
     A bytearray wih form  "bytearray(b'\x00\x00...etc)
-    The ReadFromPipeOut reads out 4 byte chunks -- or 32 bits of data. This
-    corresponds to four entries of the bytearray. If the ReadFromPipeOut reads
-    with different amount
+    The ReadFromPipeOut (Opal Kelly Funcation) reads out 4 byte chunks 
+    -- or 32 bits of data. This corresponds to four entries of the bytearray. 
+    If the ReadFromPipeOut reads with different amount bytes it will need
+    to be adjusted.
 
 Returns array of assembled data
 """
@@ -47,7 +48,6 @@ def Pipeout_Assemble(Data, Bytes):
     Buffer = bytes(Data)
     Buffer_Reverse = Buffer[::-1]
     Samples = len(Buffer)/Bytes #Should correspond to how many bytes are in each pipe out read
-
     Output_Reversed = [] #Bytes had to be reversed to correctly translate bytes
 
     for i in range(Samples):
