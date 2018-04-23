@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import Ok_Analysis
-from Ok_Funcs import bit_chop, pipeout_assemble
-=======
 import numpy as np
 import math
 from Ok_Analysis import *
 from Ok_Funcs import *
->>>>>>> ef4b8fe6942905dccfa2a794c3facaf957cb5e2a
+
 import random
 """
 TESTING BIT_CHOP FUNCTION
