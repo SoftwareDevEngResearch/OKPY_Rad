@@ -1,5 +1,5 @@
 import Ok_Analysis
-from Ok_Funcs import *
+from Ok_Funcs import bit_chop, pipeout_assemble
 import random
 """
 Using Decimal number 34050342 and convert it to binary
@@ -51,7 +51,7 @@ def create_byte_array_hex(array_length):
 def test_pipe_assemble():
     #data = bytearray()
     obs,data = create_byte_array_hex(4) #Change this value to make longer arrays
-    est = Pipeout_Assemble(data, 4)
+    est = pipeout_assemble(data, 4)
 #    print "Actual"
 #    print obs
 #    print "Actual Byte Array"
