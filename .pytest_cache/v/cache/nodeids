@@ -1,0 +1,7 @@
+[
+  "test.py::test_bit_chop_00", 
+  "test.py::test_bit_chop_last", 
+  "test.py::test_bit_chop_14_20", 
+  "test.py::test_pipe_assemble", 
+  "test.py::test_detect_peaks"
+]
