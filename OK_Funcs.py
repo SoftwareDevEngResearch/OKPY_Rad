@@ -19,6 +19,9 @@ Total Bits: Totals bits of signal that is being read. Related to Opal Kelly's
 wireout data. Number of bits should be established in VHDL.
 """
 def bit_chop(Data, msb, lsb, Total_Bits):
+    if msb < lsb:
+        print "msb variable must be larger than lsb!"
+        return None
     Buffer_bits = str(bin(Data)[2:])
     Reverse_bits = str(Buffer_bits[::-1])
     Remaining_bits = Total_Bits - len(Reverse_bits)
@@ -37,8 +40,8 @@ Bytes: Number of Bytes in each read (4 bytes for current FPGA board)
 
 Notes on Data:
     A bytearray wih form  "bytearray(b'\x00\x00...etc)
-    The ReadFromPipeOut (Opal Kelly Funcation) reads out 4 byte chunks 
-    -- or 32 bits of data. This corresponds to four entries of the bytearray. 
+    The ReadFromPipeOut (Opal Kelly Funcation) reads out 4 byte chunks
+    -- or 32 bits of data. This corresponds to four entries of the bytearray.
     If the ReadFromPipeOut reads with different amount bytes it will need
     to be adjusted.
 
@@ -55,4 +58,4 @@ def pipeout_assemble(Data, Bytes):
     result = Output_Reversed[::-1]
     return result
 
-    
+print bit_chop(353, 3, 5, 8)
