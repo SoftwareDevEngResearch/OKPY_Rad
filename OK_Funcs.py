@@ -44,7 +44,7 @@ Notes on Data:
 
 Returns array of assembled data
 """
-def Pipeout_Assemble(Data, Bytes):
+def pipeout_assemble(Data, Bytes):
     Buffer = bytes(Data)
     Buffer_Reverse = Buffer[::-1]
     Samples = len(Buffer)/Bytes #Should correspond to how many bytes are in each pipe out read
