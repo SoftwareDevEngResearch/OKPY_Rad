@@ -10,6 +10,8 @@ An error will occur if the appropriate package is not imported.
 import ok
 from tkinter import *
 from tkFileDialog import askopenfilename, asksaveasfilename
+from Ok_Analysis import *
+
 
 class OSU_Rad_Device():
     """
@@ -38,3 +40,6 @@ class OSU_Rad_Device():
         root.destroy()
         self.xem.ConfigureFPGA(str(Bit_File))
         return None
+
+    def update_settings(self):
+        #
