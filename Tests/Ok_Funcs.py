@@ -42,4 +42,4 @@ class OSU_Rad_Device():
         return None
 
     def update_settings(self):
-        #
+        pass
