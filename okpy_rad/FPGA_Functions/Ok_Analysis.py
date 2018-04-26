@@ -217,7 +217,7 @@ def detect_peaks(x, mph=None, mpd=1, threshold=0, edge='rising',
 
     def determine_polarity(data):
         """Determines if pulses have positive or negative polarity
-        
+
         data(list, numbers) : array of numbers representing the pulse
 
 
