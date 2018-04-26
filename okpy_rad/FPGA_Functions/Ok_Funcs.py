@@ -20,17 +20,18 @@ class OSU_Rad_Device():
     """
 
     def __init__(self):
-        #self.device = self.connect_device()
+
         pass
 
-    """
-    connect_device:
-    Simple function to create an object of the connected FPGA device. Opens
-    Tkinter window for user to select Bit_File to program the FPGA. The window
-    then closes and programs the FPGA. Also checks for errors.
 
-    """
     def connect_device(self):
+        """
+        connect_device:
+        Simple function to create an object of the connected FPGA device. Opens
+        Tkinter window for user to select Bit_File to program the FPGA. The window
+        then closes and programs the FPGA. Also checks for errors.
+
+        """
         self.xem = ok.okCFrontPanel()
         self.xem.OpenBySerial("")
         root = Tk()
@@ -41,5 +42,6 @@ class OSU_Rad_Device():
         self.xem.ConfigureFPGA(str(Bit_File))
         return None
 
-    def update_settings(self):
+    def auto_update_settings(self):
+        """Grabs file to update a series of WireIns from Opal Kelly   """
         pass
