@@ -7,7 +7,7 @@ the software to properly test. This also requires the "ok" package to be importe
 An error will occur if the appropriate package is not imported.
 
 """
-import ok
+#import ok
 from tkinter import *
 from tkFileDialog import askopenfilename, asksaveasfilename
 from Ok_Analysis import *
