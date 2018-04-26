@@ -1,7 +1,7 @@
 import numpy as np
 import math
 from Ok_Analysis import *
-from  Ok_Funcs import *
+#from  Ok_Funcs import *
 
 import random
 """
