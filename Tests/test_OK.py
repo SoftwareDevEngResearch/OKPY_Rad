@@ -1,7 +1,6 @@
 import numpy as np
 import math
-from Ok_Analysis import *
-#from  Ok_Funcs import *
+from ..FPGA_Functions.OK_Analysis import *
 
 import random
 """
