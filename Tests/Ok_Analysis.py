@@ -13,18 +13,19 @@ import numpy as np
 
 
 
-"""
-bit_chop function
-Takes decimal number and converts it into binary. User selects which bits are
-desired and returns a decimal number.
 
-Data: Full decimal number
-msb: Most significant bit of desired number
-lsb: least signficant bit of desired number
-Total Bits: Totals bits of signal that is being read. Related to Opal Kelly's
-wireout data. Number of bits should be established in VHDL.
-"""
 def bit_chop(Data, msb, lsb, Total_Bits):
+    """
+    bit_chop function
+    Takes decimal number and converts it into binary. User selects which bits are
+    desired and returns a decimal number.
+
+    Data(int): Full decimal number
+    msb(int): Most significant bit of desired number
+    lsb(int): least signficant bit of desired number
+    Total Bits(int): Totals bits of signal that is being read. Related to Opal Kelly's
+                     wireout data. Number of bits should be established in VHDL.
+    """
     if msb < lsb:
 
         print "msb variable must be larger than lsb"
@@ -38,29 +39,32 @@ def bit_chop(Data, msb, lsb, Total_Bits):
 
     return int(output[::-1],2)
 
-"""
-Pipeout assemble function
-Applies Opal Kelly's PipeOut read function and assembles the data
-into the appropriate array.
-Data: PipeRead data from the Opal Kelly Function
-Bytes: Number of Bytes in each read (4 bytes for current FPGA board)
 
-Notes on Data:
-    A bytearray wih form  "bytearray(b'\x00\x00...etc)
-    The ReadFromPipeOut (Opal Kelly Funcation) reads out 4 byte chunks
-    -- or 32 bits of data. This corresponds to four entries of the bytearray.
-    If the ReadFromPipeOut reads with different amount bytes it will need
-    to be adjusted.
-
-Returns array of assembled data
-"""
 def pipeout_assemble(Data, Bytes):
+    """
+    Pipeout assemble function
+    Applies Opal Kelly's PipeOut read function and assembles the data
+    into the appropriate array.
+    
+    Data(bytearray): PipeRead data from the Opal Kelly Function
+    Bytes(int): Number of Bytes in each read (4 bytes for current FPGA board)
+
+    Notes on Data:
+        A bytearray wih form  "bytearray(b'\x00\x00...etc)
+        The ReadFromPipeOut (Opal Kelly Funcation) reads out 4 byte chunks
+        -- or 32 bits of data. This corresponds to four entries of the bytearray.
+        If the ReadFromPipeOut reads with different amount bytes it will need
+        to be adjusted.
+
+    Returns array of assembled data
+    """
     Buffer = bytes(Data)
     Buffer_Reverse = Buffer[::-1]
     Samples = len(Buffer)/Bytes #Should correspond to how many bytes are in each pipe out read
-    Output_Reversed = [] #Bytes had to be reversed to correctly translate bytes
+    Output_Reversed = [] #Output must be reversed to account for the way OK reads in data
 
     for i in range(Samples):
+        #Convert the specified "byte chunks" into an interger and add to array
         Output_Reversed.append(int(Buffer_Reverse[(i*4):4+(i*4)].encode('hex'),16))
     result = Output_Reversed[::-1]
     return result
