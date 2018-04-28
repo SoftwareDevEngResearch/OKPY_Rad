@@ -8,4 +8,11 @@ parameters within the FPGA. These can include filter parameters, run mode, and o
 necessary settings that to properly run the VHDL design. This is specifically
 for Opal Kellys SetWireInValue method. The settings file should be formatted as follows:
 
-[WireAddress, ]
+[WireAddress(int), Value(int), WireType(int)]
+
+WireType Description:
+---------------------
+0: WireIn
+1: TrigIn
+
+Additional WireType will be included in future versions of the code.
