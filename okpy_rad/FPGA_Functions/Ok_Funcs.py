@@ -13,7 +13,7 @@ from tkFileDialog import askopenfilename, asksaveasfilename
 from Ok_Analysis import *
 
 
-class OSU_Rad_Device():
+class RadDevice():
     """
     Class to designate FPGA systems at Oregon State University to connect them
     via the USB.
