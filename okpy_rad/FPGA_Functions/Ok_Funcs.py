@@ -49,9 +49,9 @@ class RadDevice():
         with open(file_dir, 'rb') as csvfile:
             spamreader = csv.reader(csvfile, delimiter = ',')
             for row in spamreader:
-                if row[-1] == 0:
+                if row[-1] == '0':
                     wire_in.append(map(int,row))
-                elif row[-1] == 1:
+                elif row[-1] == '1':
                     trigger_in.append(map(int,row))
         print wire_in
         print trigger_in
