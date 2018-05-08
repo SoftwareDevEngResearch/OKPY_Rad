@@ -79,5 +79,11 @@ Data_Write.append([0x40, ep07wire, 1])
 
 thefile = open('settings.txt', 'w')
 
+with open('settings.csv', 'wb') as csvfile:
+    spamwriter = csv.writer(csvfile, delimiter= ',')
+    for item in Data_Write:
+        spamwriter.writerow(item)
+
 for item in Data_Write:
-  thefile.write("%s\n" % item)
+    for i in item:
+        thefile.write("%s" % i)

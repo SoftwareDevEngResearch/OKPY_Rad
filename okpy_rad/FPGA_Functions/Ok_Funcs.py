@@ -11,6 +11,7 @@ An error will occur if the appropriate package is not imported.
 from tkinter import *
 from tkFileDialog import askopenfilename, asksaveasfilename
 from Ok_Analysis import *
+import csv
 import os
 
 class RadDevice():
@@ -20,9 +21,9 @@ class RadDevice():
     """
 
     def __init__(self):
-
-        self.xem = ok.okCFrontPanel()
-        self.xem.OpenBySerial("")
+        pass
+        #self.xem = ok.okCFrontPanel()
+        #self.xem.OpenBySerial("")
 
 
     def program_device(self):
@@ -42,6 +43,15 @@ class RadDevice():
 
     def auto_update_settings(self):
         """Grabs file to update a series of WireIns from Opal Kelly   """
-        file = os.path.join(os.getcwd(), 'settings.txt')
-
-        pass
+        file_dir = os.path.join(os.getcwd(), 'settings.csv')
+        wire_in = []
+        trigger_in = []
+        with open(file_dir, 'rb') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter = ',')
+            for row in spamreader:
+                if row[-1] == 0:
+                    wire_in.append(map(int,row))
+                elif row[-1] == 1:
+                    trigger_in.append(map(int,row))
+        print wire_in
+        print trigger_in
