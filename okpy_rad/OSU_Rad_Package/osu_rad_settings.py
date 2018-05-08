@@ -4,11 +4,10 @@ describe din the RadDevice class. When settings need to be updated, this script
 should also be updated with the desired settings.
 """
 import csv
-#Testing atom
 
 
 Data_Write = [] #Create list for all wire data
-#These are plain settings that ca be left and not manipulated
+#These are plain settings that can be left and not manipulated
 #Future GUI versions maybe needed in order to update and change
 #These variables as well
 run_mode = 0
@@ -78,7 +77,7 @@ ep09wire = conversion_gains[0] + conversion_gains[1]*(2**4)\
 Data_Write.append([0x09, ep09wire, 0])
 Data_Write.append([0x40, ep07wire, 1])
 
-thefile = open('Settings.txt', 'w')
+thefile = open('settings.txt', 'w')
 
 for item in Data_Write:
   thefile.write("%s\n" % item)

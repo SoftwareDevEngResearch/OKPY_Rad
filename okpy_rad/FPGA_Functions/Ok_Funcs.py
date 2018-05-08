@@ -11,7 +11,7 @@ An error will occur if the appropriate package is not imported.
 from tkinter import *
 from tkFileDialog import askopenfilename, asksaveasfilename
 from Ok_Analysis import *
-
+import os
 
 class RadDevice():
     """
@@ -21,19 +21,17 @@ class RadDevice():
 
     def __init__(self):
 
-        pass
+        self.xem = ok.okCFrontPanel()
+        self.xem.OpenBySerial("")
 
 
-    def connect_device(self):
+    def program_device(self):
         """
-        connect_device:
+        program_device:
         Simple function to create an object of the connected FPGA device. Opens
         Tkinter window for user to select Bit_File to program the FPGA. The window
         then closes and programs the FPGA. Also checks for errors.
-
         """
-        self.xem = ok.okCFrontPanel()
-        self.xem.OpenBySerial("")
         root = Tk()
         root.update()
         Bit_File = askopenfilename()
@@ -44,4 +42,6 @@ class RadDevice():
 
     def auto_update_settings(self):
         """Grabs file to update a series of WireIns from Opal Kelly   """
+        file = os.path.join(os.getcwd(), 'settings.txt')
+
         pass
