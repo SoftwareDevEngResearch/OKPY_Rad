@@ -1,7 +1,6 @@
 import numpy as np
 import math
-from Ok_Analysis import *
-from Ok_Funcs import *
+from ..FPGA_Functions.Ok_Analysis import *
 
 import random
 """
@@ -38,6 +37,10 @@ Testing PipeOut_Assemble with a bytearray:
 """
 
 def create_byte_array_hex(array_length):
+    """
+    Creation of a 32-bit byte array that is similar to what is Outputed from
+    Opal Kellys ReadFromPipeOut.
+    """
     Data = bytearray() #Create Empty bytearray
     Value_Array = []
     Value_Array_Str = []
